@@ -43,7 +43,7 @@ export default {
     doDispatch() {
       // this.$store.dispatch('setUserName', '真乖，赶紧关注公众号，组织都在等你~')
       var pptUrl = 'http://yourserver.com/path/to/pptfile.pptx'
-      var wpsAppUrl = 'wps://ppt?file=' + encodeURIComponent(pptUrl)
+      var wpsAppUrl = 'KingsoftOfficeApp://ppt?file=' + encodeURIComponent(pptUrl)
 
       // 打开WPS并预览PPT
       window.location.href = wpsAppUrl
@@ -52,7 +52,7 @@ export default {
       var pptUrl = 'https://example.com/your-presentation.pptx'
 
       // 构建WPS URL Scheme
-      var wpsUrl = 'wps://office?src=' + encodeURIComponent(pptUrl)
+      var wpsUrl = 'KingsoftOfficeApp://office?src=' + encodeURIComponent(pptUrl)
 
       // 创建一个隐藏的a标签并触发点击事件
       var a = document.createElement('a')
