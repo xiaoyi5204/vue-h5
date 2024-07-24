@@ -6,7 +6,8 @@
         <div class="demo-home__title">VUE H5开发模板</div>
         <div class="item"></div>
         <div class="item">
-          <van-button size="small" @click="doDispatch">点我点我~</van-button>
+          <van-button size="small" @click="doDispatch">打开WPS</van-button>
+          <van-button size="small" @click="doDispatch1">打开WPS1~</van-button>
         </div>
       </div>
     </div>
@@ -40,7 +41,26 @@ export default {
     },
     // Action 通过 store.dispatch 方法触发
     doDispatch() {
-      this.$store.dispatch('setUserName', '真乖，赶紧关注公众号，组织都在等你~')
+      // this.$store.dispatch('setUserName', '真乖，赶紧关注公众号，组织都在等你~')
+      var pptUrl = 'http://yourserver.com/path/to/pptfile.pptx'
+      var wpsAppUrl = 'wps://ppt?file=' + encodeURIComponent(pptUrl)
+
+      // 打开WPS并预览PPT
+      window.location.href = wpsAppUrl
+    },
+    doDispatch1() {
+      var pptUrl = 'https://example.com/your-presentation.pptx'
+
+      // 构建WPS URL Scheme
+      var wpsUrl = 'wps://office?src=' + encodeURIComponent(pptUrl)
+
+      // 创建一个隐藏的a标签并触发点击事件
+      var a = document.createElement('a')
+      a.href = wpsUrl
+      a.style.display = 'none'
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
     },
     goGithub() {
       window.location.href = 'https://github.com/sunniejs/vue-h5-template'
