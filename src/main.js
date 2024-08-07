@@ -18,6 +18,11 @@ import '@/plugins/vant'
 import '@/assets/css/index.scss'
 // 移动端适配
 import 'amfe-flexible'
+// element
+import 'element-ui/lib/theme-chalk/index.css'
+import ElementUI from 'element-ui'
+
+Vue.use(ElementUI)
 
 // filters
 import './filters'

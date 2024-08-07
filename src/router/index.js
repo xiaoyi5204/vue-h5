@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import { constantRouterMap } from './router.config.js'
+import { getDeviceType } from '@/utils'
 
 // hack router push callback
 const originalPush = Router.prototype.push
@@ -26,5 +27,23 @@ export function resetRouter() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher // reset router
 }
+
+// 全局前置守卫
+router.beforeEach((to, from, next) => {
+  const deviceType = getDeviceType()
+  if (deviceType === 'Mobile') {
+    if (to.path.indexOf('_pc') > -1) {
+      next('/')
+    } else {
+      next()
+    }
+  } else {
+    if (to.path.indexOf('_pc') > -1) {
+      next()
+    } else {
+      next('/pc')
+    }
+  }
+})
 
 export default router
