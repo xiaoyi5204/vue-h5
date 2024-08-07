@@ -6,23 +6,23 @@ export const constantRouterMap = [
   {
     path: '/',
     component: () => import('@/views/layouts/index'),
-    redirect: '/home',
+    redirect: '/salary',
     meta: {
-      title: '首页',
+      title: 'home',
       keepAlive: false
     },
     children: [
       {
-        path: '/home',
-        name: 'Home',
-        component: () => import('@/views/home/index'),
-        meta: { title: '首页', keepAlive: false }
+        path: '/salary',
+        name: 'salary',
+        component: () => import('@/views/home/salary'),
+        meta: { title: '薪资计算', keepAlive: true }
       },
       {
-        path: '/about',
-        name: 'About',
-        component: () => import('@/views/home/about'),
-        meta: { title: '关于我', keepAlive: false }
+        path: '/contract',
+        name: 'contract',
+        component: () => import('@/views/home/contract'),
+        meta: { title: '合同期限', keepAlive: true }
       }
     ]
   }
